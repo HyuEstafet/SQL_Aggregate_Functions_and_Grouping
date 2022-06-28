@@ -34,6 +34,8 @@ VALUES (1, 'bread', 50, 'food', 1.5,  1.8, TRUE, 'Sofia'),
 	(18, 'strawberries', 0, 'fruit', 5.2,  6.24, FALSE, 'Sofia'),
 	(19, 'strawberries', 65, 'fruit', 5.2,  6.24, TRUE, 'Ivailovgrad'),
 	(20, 'banana', 0, 'fruit', 5.2,  6.24, FALSE, 'Vidin');
+
+DROP TABLE products_inventory;
 	
 -- Get the count of all available products in stock
 
@@ -48,7 +50,7 @@ FROM products_inventory;
 
 -- Get the total amount of all available items in stock (use price with VAT and available qty.)
 
-SELECT SUM (price_VAT_added)
+SELECT SUM (price_VAT_added*available_quantity)
 FROM products_inventory 
 WHERE is_product_in_stock = TRUE;
 
